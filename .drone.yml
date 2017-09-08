@@ -6,3 +6,15 @@ pipeline:
     - /var/run/docker.sock:/var/run/docker.sock
     commands:
     - dapper ci
+  prepare:
+    image: rancher/dapper:1.10.3
+    volumes:
+    - /var/run/docker.sock:/var/run/docker.sock
+    commands:
+    - dapper prepare
+  package:
+    image: rancher/dapper:1.10.3
+    volumes:
+    - /var/run/docker.sock:/var/run/docker.sock
+    commands:
+    - dapper package
